@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wedding Ring Virtual Try-On</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --rose-gold: #c89ca3;
+      --rose-gold-dark: #b5838c;
+      --text-dark: #1f1a1c;
+      --text-soft: #6f6468;
+      --blush: #fff8fa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: var(--blush);
+      color: var(--text-dark);
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+      display: grid;
+      gap: 28px;
+    }
+
+    .tryon-hero {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 10px;
+    }
+
+    .tryon-eyebrow {
+      margin: 0 0 12px;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      font-weight: 600;
+    }
+
+    .tryon-hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.12;
+      margin: 0 0 18px;
+      font-weight: 500;
+    }
+
+    .tryon-intro {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-soft);
+    }
+
+    .tryon-steps {
+      padding: 42px 0 18px;
+      text-align: center;
+    }
+
+    .tryon-steps h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.2rem;
+      margin: 0 0 40px;
+      color: var(--text-dark);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .step {
+      background: #fff;
+      border: 1px solid #f1e4e8;
+      border-radius: 18px;
+      padding: 28px 22px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.04);
+    }
+
+    .step-number {
+      display: block;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      color: var(--rose-gold);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .step h3 {
+      font-size: 1.15rem;
+      margin: 0 0 12px;
+      font-weight: 600;
+    }
+
+    .step p {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .note {
+      padding: 12px 14px;
+      border: 1px solid #f1e4e8;
+      border-radius: 12px;
+      background: #fff;
+      color: var(--text-soft);
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      background: #fff;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid #f1e4e8;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    select,
+    input[type="file"] {
+      border: 1px solid #e6d6db;
+      border-radius: 999px;
+      padding: 10px 12px;
+      background: #fff;
+      color: var(--text-dark);
+    }
+
+    input[type="range"] {
+      width: 180px;
+    }
+
+    .action-btn {
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid #e6d6db;
+      background: #fff;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: 0.2s ease;
+    }
+
+    .action-btn:hover {
+      border-color: var(--rose-gold);
+      color: var(--rose-gold-dark);
+    }
+
+    .selection-card {
+      background: #fff;
+      border: 1px solid #f1e4e8;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.04);
+    }
+
+    .selection-card h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      margin: 0 0 8px;
+      font-weight: 500;
+    }
+
+    .selection-card p {
+      margin: 0 0 20px;
+      color: var(--text-soft);
+      line-height: 1.7;
+    }
+
+    .stage {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      aspect-ratio: 4 / 3;
+      margin: 0 auto;
+      border: 1px solid #ead8de;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+      touch-action: none;
+    }
+
+    .stage img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    #handPreview {
+      z-index: 1;
+      object-fit: contain;
+    }
+
+    #ringPreview {
+      z-index: 2;
+      cursor: grab;
+      width: 170px;
+      height: 170px;
+      inset: auto;
+      left: 52%;
+      top: 60%;
+      transform: translate(-50%, -50%);
+      user-select: none;
+      touch-action: none;
+      object-fit: fill;
+    }
+
+    #ringPreview:active {
+      cursor: grabbing;
+    }
+
+    .stage.fullscreen {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100dvh;
+      max-width: none;
+      aspect-ratio: auto;
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      z-index: 9999;
+      background: #f7f3f4;
+      box-shadow: none;
+    }
+
+    .stage.fullscreen #handPreview {
+      object-fit: cover;
+    }
+
+    .close-preview {
+      display: none;
+    }
+
+    .stage.fullscreen .close-preview {
+      display: block;
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 10000;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.92);
+      color: #1f1a1c;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .help-text {
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      margin-top: -10px;
+    }
+
+    p a {
+      color: var(--rose-gold);
+      text-decoration: none;
+    }
+
+    p a:hover {
+      color: var(--rose-gold-dark);
+    }
+
+    @media (max-width: 768px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .wrap {
+        padding: 36px 16px 60px;
+      }
+
+      input[type="range"],
+      select {
+        width: 100%;
+      }
+
+      .controls {
+        align-items: stretch;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .stage.fullscreen {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
+        max-width: 700px;
+        aspect-ratio: 4 / 3;
+        margin: 0 auto;
+        border: 1px solid #ead8de;
+        border-radius: 18px;
+        z-index: auto;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+      }
+
+      .close-preview {
+        display: none !important;
+      }
+    }
+    .style-tile {
+  border: 1px solid #e6d6db;
+  border-radius: 14px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s ease;
+  width: 140px;
+  background: #fff;
+}
+
+.style-tile img {
+  width: 100%;
+  height: auto;
+}
+
+.style-tile span {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+}
+
+.style-tile:hover {
+  border-color: var(--rose-gold);
+}
+
+.style-tile.active {
+  border-color: var(--rose-gold);
+  box-shadow: 0 0 0 2px rgba(200,156,163,0.2);
+}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="tryon-hero">
+      <p class="tryon-eyebrow">Wedding Ring Virtual Try-On</p>
+      <h1>Find the wedding ring that feels just right.</h1>
+      <p class="tryon-intro">
+        Upload a clear photo of your hand, then choose from different wedding ring colours and widths to see which style suits you best.
+      </p>
+    </div>
+
+    <section class="tryon-steps">
+      <h2>Your wedding ring try-on experience</h2>
+
+      <div class="steps-grid">
+        <div class="step">
+          <span class="step-number">01</span>
+          <h3>Upload Your Hand Photo</h3>
+          <p>Choose a clear photo of your hand, or take a new one on your phone, so the ring can be placed naturally on your finger.</p>
+        </div>
+
+        <div class="step">
+          <span class="step-number">02</span>
+          <h3>Select Colour and Width</h3>
+          <p>Try different wedding ring colours and widths to compare how each one looks before choosing your favourite.</p>
+        </div>
+
+        <div class="step">
+          <span class="step-number">03</span>
+          <h3>Adjust the Fit</h3>
+          <p>Move the ring left, right, up or down, resize it with the slider, drag it into place, or pinch to resize on touch screens.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="note" id="modeNote" style="display:none;">
+      If uploads or ring images don’t work, run the site with Live Server / localhost rather than double-clicking the file.
+    </div>
+
+    <div class="selection-card">
+    <h2>Choose your wedding ring</h2>
+    <p>Select a style, colour and width below.</p>
+
+
+      <div class="controls">
+        <label for="handUpload">Upload your photo:</label>
+        <input id="handUpload" type="file" accept="image/*" capture="environment" />
+      </div>
+
+      <div class="controls" style="justify-content:center; gap:20px;">
+  <div class="style-tile" data-style="traditional">
+    <img src="assets/img/traditional-court-wedd.png" alt="Traditional Court">
+    <span>Traditional Court</span>
+  </div>
+
+  <div class="style-tile" data-style="soft">
+    <img src="assets/img/soft-court-wedd.png" alt="Soft Court">
+    <span>Soft Court</span>
+  </div>
+</div>
+
+
+        <label for="metalSelect">Colour:</label>
+        <select id="metalSelect">
+          <option value="yellow">Yellow Gold</option>
+          <option value="white">White Gold</option>
+          <option value="rose">Rose Gold</option>
+          <option value="platinum">Platinum</option>
+          <option value="palladium">Palladium</option>
+          <option value="argentium">Argentium</option>
+        </select>
+
+        <label for="widthSelect">Width:</label>
+        <select id="widthSelect">
+          <option value="2">2mm</option>
+          <option value="2.5">2.5mm</option>
+          <option value="3">3mm</option>
+          <option value="4">4mm</option>
+          <option value="5">5mm</option>
+          <option value="6">6mm</option>
+        </select>
+      </div>
+
+      <div class="controls">
+        <label for="ringSize">Size:</label>
+        <input id="ringSize" type="range" min="60" max="260" value="170" />
+        <span id="ringSizeVal">170</span>px
+
+        <label for="ringX">Left To Right:</label>
+        <input id="ringX" type="range" min="0" max="100" value="52" />
+
+        <label for="ringY">Up And Down:</label>
+        <input id="ringY" type="range" min="0" max="100" value="60" />
+      </div>
+
+      <div class="controls">
+        <button id="openFullscreenBtn" class="action-btn" style="display:none;">View Full Screen</button>
+        <button id="autoPlaceBtn" class="action-btn" style="display:none;">Auto Place Ring</button>
+      </div>
+    </div>
+
+    <p class="help-text">Tip: drag the ring, tap on the photo to place it, or pinch on touch screens to resize.</p>
+
+    <div class="stage" id="tryOnStage">
+      <button type="button" class="close-preview" id="closePreview">Close</button>
+      <img id="handPreview" alt="Your hand preview" />
+      <img id="ringPreview" alt="Selected wedding ring preview" />
+    </div>
+    
+    <div>
+    <p><a href="index.html">← Back</a></p>
+  </div>
+
+
+  <script>
+  if (location.protocol === "file:") {
+    document.getElementById("modeNote").style.display = "block";
+  }
+
+  const handUpload = document.getElementById("handUpload");
+  const handPreview = document.getElementById("handPreview");
+  const ringPreview = document.getElementById("ringPreview");
+
+  const metalSelect = document.getElementById("metalSelect");
+  const widthSelect = document.getElementById("widthSelect");
+
+  const ringSize = document.getElementById("ringSize");
+  const ringSizeVal = document.getElementById("ringSizeVal");
+  const ringX = document.getElementById("ringX");
+  const ringY = document.getElementById("ringY");
+
+  const tryOnStage = document.getElementById("tryOnStage");
+  const closePreview = document.getElementById("closePreview");
+  const openFullscreenBtn = document.getElementById("openFullscreenBtn");
+  const autoPlaceBtn = document.getElementById("autoPlaceBtn");
+  const stage = document.getElementById("tryOnStage");
+
+  const styleTiles = document.querySelectorAll(".style-tile");
+  let selectedStyle = "";
+
+  let dragging = false;
+  let pointerId = null;
+  let dragOffsetX = 0;
+  let dragOffsetY = 0;
+
+  let activePointers = new Map();
+  let pinchStartDistance = 0;
+  let pinchStartSize = 0;
+  let isPinching = false;
+
+  function clamp(n, min, max) {
+    return Math.max(min, Math.min(max, n));
+  }
+
+  function isSmallScreen() {
+    return window.matchMedia("(max-width: 768px)").matches;
+  }
+
+  function hasPhotoLoaded() {
+    return !!handPreview.src;
+  }
+
+  function openFullscreenPreview() {
+    if (!hasPhotoLoaded()) return;
+
+    if (isSmallScreen()) {
+      tryOnStage.classList.add("fullscreen");
+      document.body.style.overflow = "hidden";
+    }
+  }
+
+  function closeFullscreenPreview() {
+    tryOnStage.classList.remove("fullscreen");
+    document.body.style.overflow = "";
+  }
+
+  function getMetalFilter(metal) {
+    const filters = {
+      yellow: "sepia(1) saturate(1.8) hue-rotate(5deg) brightness(1.05)",
+      white: "grayscale(1) brightness(1.25) contrast(0.9)",
+      rose: "sepia(1) saturate(1.4) hue-rotate(300deg) brightness(1.05)",
+      platinum: "grayscale(1) brightness(1.1) contrast(1.05)",
+      palladium: "grayscale(1) brightness(0.95) contrast(1.15)",
+      argentium: "grayscale(1) brightness(1.3) contrast(0.9)"
+    };
+
+    return filters[metal] || filters.white;
+  }
+
+  function updateWeddingRingStyle() {
+  const width = Number(widthSelect.value);
+  const metal = metalSelect.value;
+  const baseSize = Number(ringSize.value);
+
+  if (selectedStyle === "traditional") {
+    ringPreview.src = "assets/img/traditional-court-wedd.png";
+  } else if (selectedStyle === "soft") {
+    ringPreview.src = "assets/img/soft-court-wedd.png";
+  } else {
+    return;
+  }
+
+  const widthHeightMap = {
+    2: 42,
+    2.5: 52,
+    3: 132,
+    4: 192,
+    5: 226,
+    6: 264
+  };
+
+  const bandHeight = widthHeightMap[width] || 52;
+
+  ringPreview.style.width = baseSize + "px";
+  ringPreview.style.height = bandHeight + "px";
+  ringPreview.style.objectFit = "fill";
+  ringPreview.style.transform = "translate(-50%, -50%)";
+  ringPreview.style.filter = getMetalFilter(metal);
+}
+
+  function setRingFromPercent(xPercent, yPercent) {
+    const x = clamp(xPercent, 0, 100);
+    const y = clamp(yPercent, 0, 100);
+
+    ringX.value = String(Math.round(x));
+    ringY.value = String(Math.round(y));
+
+    ringPreview.style.left = x + "%";
+    ringPreview.style.top = y + "%";
+    ringPreview.style.transform = "translate(-50%, -50%)";
+  }
+
+  function updateRing() {
+    ringSizeVal.textContent = ringSize.value;
+
+    if (!dragging && !isPinching) {
+      setRingFromPercent(Number(ringX.value), Number(ringY.value));
+    }
+
+    updateWeddingRingStyle();
+  }
+
+  function showActionButtons() {
+    openFullscreenBtn.style.display = "inline-block";
+    autoPlaceBtn.style.display = "inline-block";
+  }
+
+  function autoPlaceRing() {
+    ringSize.value = "170";
+    ringX.value = "52";
+    ringY.value = "60";
+    updateRing();
+  }
+
+  function placeRingAtClientPosition(clientX, clientY) {
+    const stageRect = stage.getBoundingClientRect();
+    const x = ((clientX - stageRect.left) / stageRect.width) * 100;
+    const y = ((clientY - stageRect.top) / stageRect.height) * 100;
+
+    setRingFromPercent(x, y);
+  }
+
+  function getDistance(p1, p2) {
+    const dx = p2.x - p1.x;
+    const dy = p2.y - p1.y;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  closePreview.addEventListener("click", closeFullscreenPreview);
+
+  openFullscreenBtn.addEventListener("click", openFullscreenPreview);
+
+  autoPlaceBtn.addEventListener("click", autoPlaceRing);
+
+  styleTiles.forEach(tile => {
+  tile.addEventListener("click", () => {
+    styleTiles.forEach(t => t.classList.remove("active"));
+    tile.classList.add("active");
+
+    selectedStyle = tile.dataset.style;
+    updateRing();
+  });
+});
+
+  handUpload.addEventListener("change", (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const oldUrl = handPreview.dataset.objectUrl;
+    if (oldUrl) URL.revokeObjectURL(oldUrl);
+
+    const objectUrl = URL.createObjectURL(file);
+    handPreview.src = objectUrl;
+    handPreview.dataset.objectUrl = objectUrl;
+
+    showActionButtons();
+    autoPlaceRing();
+    openFullscreenPreview();
+  });
+
+  metalSelect.addEventListener("change", updateRing);
+  widthSelect.addEventListener("change", updateRing);
+
+  [ringSize, ringX, ringY].forEach(el => {
+    el.addEventListener("input", updateRing);
+  });
+
+  stage.addEventListener("click", (e) => {
+    if (!hasPhotoLoaded()) return;
+    if (e.target === ringPreview || e.target === closePreview) return;
+
+    placeRingAtClientPosition(e.clientX, e.clientY);
+  });
+
+  ringPreview.addEventListener("pointerdown", (e) => {
+    activePointers.set(e.pointerId, {
+      x: e.clientX,
+      y: e.clientY
+    });
+
+    if (activePointers.size === 1) {
+      dragging = true;
+      pointerId = e.pointerId;
+      ringPreview.setPointerCapture(pointerId);
+
+      const ringRect = ringPreview.getBoundingClientRect();
+      dragOffsetX = e.clientX - ringRect.left;
+      dragOffsetY = e.clientY - ringRect.top;
+
+      ringPreview.style.cursor = "grabbing";
+    }
+
+    if (activePointers.size === 2) {
+      isPinching = true;
+      dragging = false;
+      pointerId = null;
+
+      const points = Array.from(activePointers.values());
+      pinchStartDistance = getDistance(points[0], points[1]);
+      pinchStartSize = Number(ringSize.value);
+    }
+  });
+
+  ringPreview.addEventListener("pointermove", (e) => {
+    if (activePointers.has(e.pointerId)) {
+      activePointers.set(e.pointerId, {
+        x: e.clientX,
+        y: e.clientY
+      });
+    }
+
+    if (isPinching && activePointers.size >= 2) {
+      const points = Array.from(activePointers.values());
+      const currentDistance = getDistance(points[0], points[1]);
+      const scale = currentDistance / pinchStartDistance;
+      const newSize = clamp(Math.round(pinchStartSize * scale), 60, 260);
+
+      ringSize.value = String(newSize);
+      updateRing();
+      return;
+    }
+
+    if (!dragging || e.pointerId !== pointerId) return;
+
+    const stageRect = stage.getBoundingClientRect();
+    const ringW = ringPreview.offsetWidth;
+    const ringH = ringPreview.offsetHeight;
+
+    let leftPx = e.clientX - stageRect.left - dragOffsetX;
+    let topPx = e.clientY - stageRect.top - dragOffsetY;
+
+    leftPx = clamp(leftPx, 0, stageRect.width - ringW);
+    topPx = clamp(topPx, 0, stageRect.height - ringH);
+
+    const centerX = leftPx + ringW / 2;
+    const centerY = topPx + ringH / 2;
+
+    const xPercent = (centerX / stageRect.width) * 100;
+    const yPercent = (centerY / stageRect.height) * 100;
+
+    setRingFromPercent(xPercent, yPercent);
+  });
+
+  function endPointer(e) {
+    activePointers.delete(e.pointerId);
+
+    if (e.pointerId === pointerId) {
+      dragging = false;
+      pointerId = null;
+      ringPreview.style.cursor = "grab";
+    }
+
+    if (activePointers.size < 2) {
+      isPinching = false;
+    }
+  }
+
+  ringPreview.addEventListener("pointerup", endPointer);
+  ringPreview.addEventListener("pointercancel", endPointer);
+  ringPreview.addEventListener("pointerleave", endPointer);
+
+  ringPreview.removeAttribute("src");
+</script>
+</body>
+</html>

@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Virtual Try-On</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --rose-gold: #c89ca3;
+      --rose-gold-dark: #b5838c;
+      --text-dark: #1f1a1c;
+      --text-soft: #6f6468;
+      --blush: #fff8fa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: var(--blush);
+      color: var(--text-dark);
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+      display: grid;
+      gap: 28px;
+    }
+
+    .tryon-hero {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 10px;
+    }
+
+    .tryon-eyebrow {
+      margin: 0 0 12px;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      font-weight: 600;
+    }
+
+    .tryon-hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.12;
+      margin: 0 0 18px;
+      font-weight: 500;
+    }
+
+    .tryon-intro {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-soft);
+    }
+
+    .tryon-steps {
+      padding: 36px 0 12px;
+      text-align: center;
+    }
+
+    .tryon-steps h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.2rem;
+      margin: 0 0 34px;
+      color: var(--text-dark);
+    }
+.tryon-examples {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.tryon-example {
+  background: #fff;
+  border: 1px solid #f1e4e8;
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.04);
+}
+
+.tryon-example img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.tryon-example h4 {
+  margin: 0 0 12px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.tryon-example .action-btn {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .tryon-examples {
+    grid-template-columns: 1fr;
+  }
+}
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .step {
+      background: #fff;
+      border: 1px solid #f1e4e8;
+      border-radius: 18px;
+      padding: 28px 22px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.04);
+    }
+
+    .step-number {
+      display: block;
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      color: var(--rose-gold);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .step h3 {
+      font-size: 1.15rem;
+      margin: 0 0 12px;
+      font-weight: 600;
+    }
+
+    .step p {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .note {
+      padding: 12px 14px;
+      border: 1px solid #f1e4e8;
+      border-radius: 12px;
+      background: #fff;
+      color: var(--text-soft);
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      background: #fff;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid #f1e4e8;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input[type="range"] {
+      width: 180px;
+    }
+
+    .action-btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid #e6d6db;
+      background: #fff;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .action-btn:hover {
+      border-color: var(--rose-gold);
+      color: var(--rose-gold-dark);
+    }
+
+    .stage {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      aspect-ratio: 4 / 3;
+      margin: 0 auto;
+      border: 1px solid #ead8de;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+      touch-action: none;
+    }
+
+    .stage img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    #customerPhoto {
+      z-index: 1;
+      object-fit: contain;
+    }
+
+    #tryOnItem {
+      z-index: 2;
+      cursor: grab;
+      width: 180px;
+      height: 180px;
+      inset: auto;
+      left: 50%;
+      top: 55%;
+      transform: translate(-50%, -50%);
+      user-select: none;
+      touch-action: none;
+      object-fit: contain;
+    }
+
+    #tryOnItem:active {
+      cursor: grabbing;
+    }
+
+    .stage.fullscreen {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100dvh;
+      max-width: none;
+      aspect-ratio: auto;
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      z-index: 9999;
+      background: #f7f3f4;
+      box-shadow: none;
+    }
+
+    .stage.fullscreen #customerPhoto {
+      object-fit: cover;
+    }
+
+    .close-preview {
+      display: none;
+    }
+
+    .stage.fullscreen .close-preview {
+      display: block;
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 10000;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.92);
+      color: #1f1a1c;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .help-text {
+      text-align: center;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      margin: -10px 0 0;
+    }
+
+    .back-link {
+      color: var(--rose-gold);
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: var(--rose-gold-dark);
+    }
+
+    @media (max-width: 768px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .wrap {
+        padding: 36px 16px 60px;
+      }
+
+      input[type="range"] {
+        width: 100%;
+      }
+
+      .controls {
+        align-items: stretch;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .stage.fullscreen {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
+        max-width: 700px;
+        aspect-ratio: 4 / 3;
+        margin: 0 auto;
+        border: 1px solid #ead8de;
+        border-radius: 18px;
+        z-index: auto;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+      }
+
+      .close-preview {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="tryon-hero">
+      <p class="tryon-eyebrow">Virtual Try-On</p>
+      <h1>Experience every detail, wherever you are.</h1>
+      <p class="tryon-intro">
+        Upload your photo, position the item, and adjust the size to see how it looks before you choose.
+      </p>
+    </div>
+
+    <section class="tryon-steps">
+      <h2>Your virtual try-on experience</h2>
+
+      <div class="steps-grid">
+        <div class="step">
+          <span class="step-number">01</span>
+          <h3>Upload Your Photo</h3>
+          <p>Select choose file. Take a new picture or choose one from your camera roll. Use a clear photo of your hand.</p>
+        </div>
+
+        <div class="step">
+          <span class="step-number">02</span>
+          <h3>Adjust The Item</h3>
+          <p>Use the sliders, drag the item, tap the photo to place it, or pinch on touch screens to resize.</p>
+        </div>
+
+        <div class="step">
+          <span class="step-number">03</span>
+          <h3>Save Your Look</h3>
+          <p>Virtual Try-On does not save pictures. Take a screenshot if you want to keep or share your look.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="note" id="modeNote" style="display:none;">
+      If uploads or item images do not work, run the site with Live Server / localhost instead of double-clicking the file.
+    </div>
+
+    <div class="note" id="itemNote" style="display:none;">
+      You are trying on the selected item.
+    </div>
+
+    <div class="tryon-examples">
+    <div class="tryon-example">
+      <img src="assets/img/91741R240POLG-18Y-18ct-yellow-gold-1.20ct-pear-and-1.20ct-oval-lab-diamond-toi-et-moi-ring-front-image.jpg" alt="Ring">
+      <h4>Ring</h4>
+      <a href="try-on.html?image=assets/img/91741R240POLG-18Y-18ct-yellow-gold-1.20ct-pear-and-1.20ct-oval-lab-diamond-toi-et-moi-ring-front-image.jpg&type=ring" class="action-btn">
+        Try Ring
+      </a>
+    </div>
+  </div>
+
+    <div class="controls">
+      <label for="photoUpload">Upload your photo:</label>
+      <input id="photoUpload" type="file" accept="image/*" capture="environment" />
+    </div>
+
+    <div class="controls">
+      <label for="itemSize">Size:</label>
+      <input id="itemSize" type="range" min="60" max="320" value="180" />
+      <span id="itemSizeVal">180</span>px
+
+      <label for="itemX">Left To Right:</label>
+      <input id="itemX" type="range" min="0" max="100" value="50" />
+
+      <label for="itemY">Up And Down:</label>
+      <input id="itemY" type="range" min="0" max="100" value="55" />
+    </div>
+
+    <div class="controls">
+      <button id="openFullscreenBtn" type="button" class="action-btn" style="display:none;">View Full Screen</button>
+      <button id="autoPlaceBtn" type="button" class="action-btn" style="display:none;">Auto Place Item</button>
+    </div>
+
+    <p class="help-text">Tip: drag the item, tap on the photo to place it, or pinch on touch screens to resize.</p>
+
+    <div class="stage" id="tryOnStage">
+      <button type="button" class="close-preview" id="closePreview">Close</button>
+      <img id="customerPhoto" alt="Your uploaded preview" />
+      <img id="tryOnItem" alt="Selected item preview" />
+    </div>
+
+    <p><a class="back-link" href="index.html">← Back</a></p>
+  </div>
+
+  <script>
+    if (location.protocol === "file:") {
+      document.getElementById("modeNote").style.display = "block";
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const productImageFromUrl = params.get("image");
+    const productType = params.get("type") || "ring";
+
+    const photoUpload = document.getElementById("photoUpload");
+    const customerPhoto = document.getElementById("customerPhoto");
+    const tryOnItem = document.getElementById("tryOnItem");
+
+    const itemSize = document.getElementById("itemSize");
+    const itemSizeVal = document.getElementById("itemSizeVal");
+    const itemX = document.getElementById("itemX");
+    const itemY = document.getElementById("itemY");
+
+    const tryOnStage = document.getElementById("tryOnStage");
+    const closePreview = document.getElementById("closePreview");
+    const openFullscreenBtn = document.getElementById("openFullscreenBtn");
+    const autoPlaceBtn = document.getElementById("autoPlaceBtn");
+    const itemNote = document.getElementById("itemNote");
+
+    let dragging = false;
+    let pointerId = null;
+    let dragOffsetX = 0;
+    let dragOffsetY = 0;
+
+    let activePointers = new Map();
+    let pinchStartDistance = 0;
+    let pinchStartSize = 0;
+    let isPinching = false;
+
+    function isSmallScreen() {
+      return window.matchMedia("(max-width: 768px)").matches;
+    }
+
+    function hasPhotoLoaded() {
+      return customerPhoto.src && customerPhoto.src.length > 0;
+    }
+
+    function clamp(n, min, max) {
+      return Math.max(min, Math.min(max, n));
+    }
+
+    function setTryOnItem(src) {
+  const spotlightImage = "assets/img/91741R240POLG-18Y-18ct-yellow-gold-1.20ct-pear-and-1.20ct-oval-lab-diamond-toi-et-moi-ring-front-image.jpg";
+  const imageToUse = src || spotlightImage;
+
+  tryOnItem.src = imageToUse;
+  itemNote.style.display = "block";
+
+  tryOnItem.onerror = () => {
+    alert(`Could not load ${imageToUse}. Please check the file name, capital letters, and folder path.`);
+  };
+}
+
+    function autoPlaceItem() {
+      if (productType === "watch") {
+        itemSize.value = "230";
+        itemX.value = "50";
+        itemY.value = "58";
+      } else if (productType === "earrings" || productType === "earring") {
+        itemSize.value = "120";
+        itemX.value = "52";
+        itemY.value = "42";
+      } else {
+        itemSize.value = "170";
+        itemX.value = "52";
+        itemY.value = "60";
+      }
+
+      updateItem();
+    }
+
+    function openFullscreenPreview() {
+      if (!hasPhotoLoaded()) return;
+
+      if (isSmallScreen()) {
+        tryOnStage.classList.add("fullscreen");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    function closeFullscreenPreview() {
+      tryOnStage.classList.remove("fullscreen");
+      document.body.style.overflow = "";
+    }
+
+    function setItemFromPercent(xPercent, yPercent) {
+      const x = clamp(xPercent, 0, 100);
+      const y = clamp(yPercent, 0, 100);
+
+      itemX.value = String(Math.round(x));
+      itemY.value = String(Math.round(y));
+
+      tryOnItem.style.left = x + "%";
+      tryOnItem.style.top = y + "%";
+      tryOnItem.style.transform = "translate(-50%, -50%)";
+    }
+
+    function updateItem() {
+      const size = Number(itemSize.value);
+      itemSizeVal.textContent = size;
+
+      tryOnItem.style.width = size + "px";
+      tryOnItem.style.height = size + "px";
+
+      if (!dragging && !isPinching) {
+        setItemFromPercent(Number(itemX.value), Number(itemY.value));
+      }
+    }
+
+    function showActionButtons() {
+      openFullscreenBtn.style.display = "inline-block";
+      autoPlaceBtn.style.display = "inline-block";
+    }
+
+    function placeItemAtClientPosition(clientX, clientY) {
+      const stageRect = tryOnStage.getBoundingClientRect();
+      const x = ((clientX - stageRect.left) / stageRect.width) * 100;
+      const y = ((clientY - stageRect.top) / stageRect.height) * 100;
+      setItemFromPercent(x, y);
+    }
+
+    function getDistance(p1, p2) {
+      const dx = p2.x - p1.x;
+      const dy = p2.y - p1.y;
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    closePreview.addEventListener("click", closeFullscreenPreview);
+    openFullscreenBtn.addEventListener("click", openFullscreenPreview);
+    autoPlaceBtn.addEventListener("click", autoPlaceItem);
+
+    photoUpload.addEventListener("change", (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+
+      const oldUrl = customerPhoto.dataset.objectUrl;
+      if (oldUrl) URL.revokeObjectURL(oldUrl);
+
+      const objectUrl = URL.createObjectURL(file);
+      customerPhoto.src = objectUrl;
+      customerPhoto.dataset.objectUrl = objectUrl;
+
+      showActionButtons();
+      autoPlaceItem();
+      openFullscreenPreview();
+    });
+
+    tryOnStage.addEventListener("click", (e) => {
+      if (!hasPhotoLoaded()) return;
+      if (e.target === tryOnItem || e.target === closePreview) return;
+      placeItemAtClientPosition(e.clientX, e.clientY);
+    });
+
+    tryOnItem.addEventListener("pointerdown", (e) => {
+      activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+      if (activePointers.size === 1) {
+        dragging = true;
+        pointerId = e.pointerId;
+        tryOnItem.setPointerCapture(pointerId);
+
+        const itemRect = tryOnItem.getBoundingClientRect();
+        dragOffsetX = e.clientX - itemRect.left;
+        dragOffsetY = e.clientY - itemRect.top;
+        tryOnItem.style.cursor = "grabbing";
+      }
+
+      if (activePointers.size === 2) {
+        isPinching = true;
+        dragging = false;
+        pointerId = null;
+
+        const points = Array.from(activePointers.values());
+        pinchStartDistance = getDistance(points[0], points[1]);
+        pinchStartSize = Number(itemSize.value);
+      }
+    });
+
+    tryOnItem.addEventListener("pointermove", (e) => {
+      if (activePointers.has(e.pointerId)) {
+        activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      }
+
+      if (isPinching && activePointers.size >= 2) {
+        const points = Array.from(activePointers.values());
+        const currentDistance = getDistance(points[0], points[1]);
+        const scale = currentDistance / pinchStartDistance;
+        const newSize = clamp(Math.round(pinchStartSize * scale), 60, 320);
+
+        itemSize.value = String(newSize);
+        updateItem();
+        return;
+      }
+
+      if (!dragging || e.pointerId !== pointerId) return;
+
+      const stageRect = tryOnStage.getBoundingClientRect();
+      const itemW = tryOnItem.offsetWidth;
+      const itemH = tryOnItem.offsetHeight;
+
+      let leftPx = e.clientX - stageRect.left - dragOffsetX;
+      let topPx = e.clientY - stageRect.top - dragOffsetY;
+
+      leftPx = clamp(leftPx, 0, stageRect.width - itemW);
+      topPx = clamp(topPx, 0, stageRect.height - itemH);
+
+      const centerX = leftPx + itemW / 2;
+      const centerY = topPx + itemH / 2;
+
+      const xPercent = (centerX / stageRect.width) * 100;
+      const yPercent = (centerY / stageRect.height) * 100;
+
+      setItemFromPercent(xPercent, yPercent);
+    });
+
+    function endPointer(e) {
+      activePointers.delete(e.pointerId);
+
+      if (e.pointerId === pointerId) {
+        dragging = false;
+        pointerId = null;
+        tryOnItem.style.cursor = "grab";
+      }
+
+      if (activePointers.size < 2) {
+        isPinching = false;
+      }
+    }
+
+    tryOnItem.addEventListener("pointerup", endPointer);
+    tryOnItem.addEventListener("pointercancel", endPointer);
+    tryOnItem.addEventListener("pointerleave", endPointer);
+
+    [itemSize, itemX, itemY].forEach(el => {
+      el.addEventListener("input", updateItem);
+    });
+
+    setTryOnItem(productImageFromUrl);
+    autoPlaceItem();
+  </script>
+</body>
+</html>

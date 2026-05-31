@@ -1,0 +1,1489 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colette Freeman</title>
+  <meta name="description" content="Mock up">
+
+  <link rel="stylesheet" href="https://lunevedy.com/assets/2.0/css/lunevedy.min.css">
+  <link rel="stylesheet" href="assets/css/custom.css?v=9">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZB6Q0Z289"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BZB6Q0Z289');
+  </script>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/favicons/site.webmanifest">
+
+  <link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="DC Jewellers">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+
+<body>
+  <div class="announcement-bar announcement-rotate" aria-live="polite">
+  <p id="announcementText">Free standard delivery on orders over €75</p>
+</div>
+
+<nav class="theme-light">
+  <div class="container-menu nav-3col">
+
+    <div class="nav-left">
+  <a class="nav-contact" href="assets/" aria-label="Contact Us">
+    <span>Contact Us</span>
+  </a>
+</div>
+
+    <div class="nav-center">
+      <a href="index.html" class="brand brand-logo">
+        <img src="assets/img/DCJ LOGO.png" alt="David Cullen Jewellers">
+      </a>
+    </div>
+
+    <div class="nav-right">
+      <div class="nav-toggle" id="nav-toggle-btn" aria-label="Menu">
+        <div class="bar-1"></div>
+        <div class="bar-2"></div>
+        <div class="bar-3"></div>
+      </div>
+
+      <ul class="links-wrapper">
+        <li class="nav-icons">
+          <div class="nav-icons-inner">
+            <button class="icon-link icon-btn-reset" id="megaMenuBtn" type="button" aria-label="Open jewellery menu" aria-expanded="false">
+              <i class="fa-solid fa-bars"></i>
+              <span class="icon-label">Menu</span>
+            </button>
+
+            <div class="search-wrap" id="searchWrap">
+              <button class="search-toggle" id="searchToggle" aria-label="Open search" type="button">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+
+              <form action="store/index.html" method="get" class="search-form-collapsible" id="searchForm" role="search">
+                <label class="sr-only" for="site-search">Search</label>
+                <input id="site-search" name="q" type="search" placeholder="Search products..." aria-label="Search products">
+                <button type="submit" class="search-submit" aria-label="Search">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </form>
+            </div>
+
+            <a href="store/wishlist.html" class="icon-link" aria-label="Wishlist">
+              <i class="fa-regular fa-heart"></i>
+              <span class="icon-badge" id="wishlist-count">0</span>
+              <span class="icon-label">Wishlist</span>
+            </a>
+
+            <div class="account-wrap" id="accountWrap">
+              <button
+                class="icon-link icon-btn-reset account-btn"
+                id="accountBtn"
+                type="button"
+                aria-label="Account"
+                aria-expanded="false"
+                aria-controls="accountDropdown"
+              >
+                <i class="fa-regular fa-user"></i>
+                <span class="icon-label">Account</span>
+              </button>
+
+              <div class="account-dropdown" id="accountDropdown" role="menu" aria-hidden="true">
+                <a href="store/login.html" role="menuitem">Log in</a>
+                <a href="store/register.html" role="menuitem">Create account</a>
+              </div>
+            </div>
+
+            <button class="icon-link icon-btn-reset" id="cartOpenBtn" type="button" aria-label="Open cart">
+              <i class="fa-solid fa-bag-shopping"></i>
+              <span class="icon-badge" id="cart-count">0</span>
+              <span class="icon-label">View Cart</span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<a class="floating-btn" href="delivery-returns.html" aria-label="Online Orders Contact">
+  <i class="fa-regular fa-envelope"></i>
+  <span class="fab-text">Contact Us</span>
+</a>
+  <section class="mega-menu" id="megaMenu" aria-hidden="true">
+    <button class="mega-close" id="megaCloseBtn" aria-label="Close menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="mega-inner">
+      <div class="mega-col">
+        <h4 class="mega-title">Shop Rings</h4>
+        <ul class="mega-links">
+          <li><a href="store/index.html#rings">Engagement Rings</a></li>
+          <li><a href="store/index.html#engagement">Colour Stone Rings</a></li>
+          <li><a href="store/index.html#wedding">Wedding Bands</a></li>
+          <li><a href="store/index.html#salerings">Sale Rings</a></li>
+        </ul>
+      </div>
+
+      <div class="mega-col">
+        <h4 class="mega-title">Collections</h4>
+        <ul class="mega-links">
+          <li><a href="store/index.html#earrings">Diamond Jewellery</a></li>
+          <li><a href="store/index.html#necklaces">Gold Jewellery</a></li>
+          <li><a href="store/index.html#bracelets">Silver Jewellery</a></li>
+          <li><a href="store/index.html#watches">Childrens Jewellery</a></li>
+          <li><a href="store/index.html#gifts">Gents Jewellery</a></li>
+          <li><a href="store/index.html#sale">Celtic Jewellery</a></li>
+          <li><a href="store/index.html#salejewellery">Sale Jewellery</a></li>
+        </ul>
+      </div>
+
+      <div class="mega-col">
+        <h4 class="mega-title">Watches</h4>
+        <ul class="mega-links">
+          <li><a href="store/index.html#armaniexchange">Armani Exchange</a></li>
+          <li><a href="store/index.html#boss">Boss</a></li>
+          <li><a href="store/index.html#casio">Casio</a></li>
+          <li><a href="store/index.html#citizen">Citizen</a></li>
+          <li><a href="store/index.html#cluse">Cluse</a></li>
+          <li><a href="store/index.html#fossil">Fossil</a></li>
+          <li><a href="store/index.html#lorus">Lorus</a></li>
+          <li><a href="store/index.html#michaelkors">Michael Kors</a></li>
+          <li><a href="store/index.html#seiko">Seiko</a></li>
+          <li><a href="store/index.html#salewatches">Sale Watches</a></li>
+        </ul>
+      </div>
+
+      <div class="mega-col">
+        <h4 class="mega-title">Brands</h4>
+        <ul class="mega-links">
+          <li><a href="store/index.html#absolute">Absolute</a></li>
+          <li><a href="store/index.html#aniahaie">Ania Haie</a></li>
+          <li><a href="store/index.html#chlobo">Chlobo</a></li>
+          <li><a href="store/index.html#burren">Burren</a></li>
+          <li><a href="store/index.html#littlestar">Little Star</a></li>
+          <li><a href="store/index.html#tedbaker">Ted Baker</a></li>
+          <li><a href="store/index.html#salebrands">Sale Brands</a></li>
+        </ul>
+      </div>
+
+      <div class="mega-col">
+        <h4 class="mega-title">Giftware</h4>
+        <ul class="mega-links">
+          <li><a href="store/index.html#absolute">Christening Gifts</a></li>
+          <li><a href="store/index.html#aniahaie">Cross Pens</a></li>
+          <li><a href="store/index.html#photoframes">Photo Frames</a></li>
+          <li><a href="store/index.html#chlobo">Secrid Wallets</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+
+  <aside
+    class="drawer drawer-right"
+    id="cartDrawer"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="cartDrawerTitle"
+    tabindex="-1"
+  >
+    <div class="drawer-header">
+      <h3 class="drawer-title" id="cartDrawerTitle">Your Cart</h3>
+      <button class="drawer-close" id="cartCloseBtn" type="button" aria-label="Close cart">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="drawer-body" id="cartItems" aria-live="polite"></div>
+
+    <div class="drawer-footer">
+      <div class="cart-summary" aria-label="Cart subtotal">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">€0</strong>
+      </div>
+
+      <div class="drawer-actions">
+        <a class="btn btn-solid btn-soft drawer-btn" href="store/checkout.html">Checkout</a>
+        <a class="btn btn-outline btn-soft drawer-btn" href="cart-preview.html">View Cart</a>
+        <a class="btn btn-outline btn-soft drawer-btn drawer-secondary" href="index.html">Back to Shopping</a>
+        <a class="btn btn-outline btn-soft drawer-btn drawer-secondary" href="store/wishlist.html">View Wishlist</a>
+      </div>
+
+      <p class="drawer-note">Mockup drawer for design preview.</p>
+    </div>
+  </aside>
+
+  <div class="announcement-bar announcement-menu" aria-live="polite">
+  <nav class="menu-row" aria-label="Store menu">
+    <a class="menu-item" href="clarehall.html">New In</a>
+    <a class="menu-item" href="clarehall.html">Engagememnt Rings</a>
+    <a class="menu-item" href="charlestown.html">Wedding Rings</a>
+    <a class="menu-item" href="swan.html">Gold Jewellery</a>
+    <a class="menu-item" href="swan.html">Silver Jewellery</a>
+    <a class="menu-item" href="swan.html">Watches</a>
+    <a class="menu-item" href="swan.html">Brands</a>
+    <a class="menu-item" href="swan.html">Gifts</a>
+     <a class="menu-item" href="swan.html">Sale🔥</a>
+  </nav>
+</div>
+
+
+<header class="hero-slider" aria-label="Featured promotions">
+
+  <div class="hero-slides" id="heroSlides">
+
+    <!-- Slide 1 -->
+    <figure class="hero-slide hero-slide--split">
+
+      <section class="split-panel">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/wedding-rings-hero (2).mp4" type="video/mp4">
+        </video>
+
+        <div class="split-content">
+          <div class="split-content-box">
+            <h1>MEGA WEDDING RING SALE</h1>
+            <p>50% OFF ALL WEDDING RINGS</p>
+            <a href="/wedding-rings">Shop Wedding Rings</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="split-panel">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/dazzle.mp4" type="video/mp4">
+        </video>
+
+        <div class="split-content">
+          <div class="split-content-box split-content-box--button-only">
+            <a href="/engagement-rings">Shop Engagement Rings</a>
+          </div>
+        </div>
+      </section>
+
+    </figure>
+
+    <!-- Slide 2 -->
+    <figure class="hero-slide hero-slide--split">
+
+      <section class="split-panel">
+        <video autoplay muted loop playsinline>
+          <source src="assets/videos/Citizen watches advertisement with jets flying in formation across blue sky with red, white, and blue contrails, Citizen watch displayed prominently, dynamic motion and energy.mp4" type="video/mp4">
+        </video>
+
+        <div class="split-content">
+          <div class="split-content-box split-content-box--button-only">
+            <a href="/watches/citizen">Shop Citizen</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="split-panel">
+        <img src="assets/img/casiogshock.jpg" alt="Casio G-Shock watch">
+
+        <div class="split-content">
+          <div class="split-content-box split-content-box--button-only">
+            <a href="/watches/casio">Shop Casio</a>
+          </div>
+        </div>
+      </section>
+
+    </figure>
+
+    <!-- Slide 3 -->
+    <figure class="hero-slide hero-slide--split">
+
+      <section class="split-panel">
+        <img src="assets/img/gold-hero.jpg" alt="Gold Jewellery">
+
+        <div class="split-content">
+          <div class="split-content-box split-content-box--button-only">
+            <a href="/watches/casio">Shop Gold Jewellery</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="split-panel">
+        <img src="assets/img/silver-hero.jpg" alt="Festival jewellery styling">
+
+        <div class="split-content">
+          <div class="split-content-box">
+            <h1></h1>
+            <p></p>
+            <a href="shop-the-look-single-product.html">Shop Silver Jewellery</a>
+          </div>
+        </div>
+      </section>
+
+    </figure>
+
+  </div>
+
+  <!-- Slider arrows -->
+  <button class="hero-arrow hero-arrow-prev" type="button" aria-label="Previous slide">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+
+  <button class="hero-arrow hero-arrow-next" type="button" aria-label="Next slide">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+</header>
+
+<section class="trust-bar">
+    <p>David Cullen - Independent Irish Jewellers • Since 2002</p>
+</section>
+
+  <section class="diamond-style-feature">
+    
+    <div class="section-intro">
+        <p class="eyebrow">Engagement Rings</p>
+        <h2>Shop By Diamond Style</h2>
+        <p>
+            Whether you love the timeless elegance of a round solitaire
+            or the mirror maze effect of a emerald cut, discover the perfect ring style.
+        </p>
+    </div>
+
+    <div class="diamond-style-grid">
+
+        <a href="/round-solitaire-rings" class="diamond-style-card">
+            <img src="assets/img/round-soliatire.jpg" alt="Round Solitaire">
+            <span>Round</span>
+        </a>
+
+        <a href="/oval-rings" class="diamond-style-card">
+            <img src="assets/img/oval-shape.jpg" alt="Oval">
+            <span>Oval</span>
+        </a>
+
+        <a href="/emerald-rings" class="diamond-style-card">
+            <img src="assets/img/emerald-shape.jpg" alt="Emerald">
+            <span>Emerald</span>
+        </a>
+
+        <a href="/halo-rings" class="diamond-style-card">
+            <img src="assets/img/princess-shape.jpg" alt="Princess">
+            <span>Princess</span>
+        </a>
+
+        <a href="/pear-rings" class="diamond-style-card">
+            <img src="assets/img/pear-shape.jpg" alt="Pear">
+            <span>Pear</span>
+        </a>
+
+        <a href="/pear-rings" class="diamond-style-card">
+            <img src="assets/img/cushion-shape.jpg" alt="Cushion">
+            <span>Cushion</span>
+        </a>
+
+        <a href="/pear-rings" class="diamond-style-card">
+            <img src="assets/img/radiant-shape.jpg" alt="Radiant">
+            <span>Radiant</span>
+        </a>
+
+    </div>
+
+</section>
+
+ <section class="spotlight-card-feature">
+  <div class="spotlight-card-content">
+    <p class="spotlight-card-kicker">Spotlight</p>
+    <h2>Toi et Moi</h2>
+
+    <p>
+      <strong>WARNING – You’re about to fall in love!</strong>
+      This month we’re swooning over the beautiful Toi et Moi ring.
+      Two sparkling lab-grown diamond solitaires, side by side, celebrating two hearts becoming one.
+      It’s romantic, radiant, and waiting for you.
+    </p>
+
+    <p>Go on… try it on — we dare you.</p>
+
+    <div class="spotlight-signoff">
+      <p>Yours sincerely,</p>
+      <img src="assets/img/colettesignature.png" alt="Designed by Colette">
+      <p>Inventory and Website Operations</p>
+    </div>
+
+    <div class="spotlight-card-actions">
+      <a href="assets/img/91741R240POLG-18Y-18ct-yellow-gold-1.20ct-pear-and-1.20ct-oval-lab-diamond-toi-et-moi-ring-front-image.jpg" class="btn btn-solid btn-soft">
+        <span>Shop Now</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+
+      <a href="spotlight-try-on.html" class="spotlight-card-link">
+        Try this ring on
+      </a>
+    </div>
+  </div>
+
+  <a href="shop.html" class="spotlight-card-image">
+    <img src="rings/toietmoi.png" alt="Toi et Moi ring">
+  </a>
+</section>
+
+  <section class="theme-light section-selector-1 w-1356px">
+    <div class="col-1 text-center w-820px">
+      <h2>View Collections</h2>
+    </div>
+
+    <div class="flex-cols-4 cols-gap-4">
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/RPP04-18Y-1.01-18ct-gold-4-claw-lab-diamond-1.01ct-solitaire-ring-front-image.jpg" alt="Engagement Rings"></a>
+        </figure>
+        <h3>Engagement Rings</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Engagement Rings</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="sapphires.html"><img src="assets/img/R547S-PT-Platinum-lab-2.25pts-sapphire-lab-1.00pts-diamond-cluster-ring-front-image.jpg" alt="Sapphire Rings"></a>
+        </figure>
+        <h3>Sapphire Rings</h3>
+        <p>Shop now.</p>
+        <a href="sapphires.html" class="btn btn-solid btn-soft"><span>View all Sapphire Rings</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/R546E-18Y-18ct-gold-lab-1.04-emerald-lab-50pts-diamond-cluster-ring-front-image.jpg" alt="Emerald Rings"></a>
+        </figure>
+        <h3>Emerald Rings</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Emerald Rings</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/R547R-PT-Platinum-lab-2.03pts-ruby-lab-1.00pts-diamond-cluster-ring-front-image.jpg" alt="Ruby Rings"></a>
+        </figure>
+        <h3>Ruby Rings</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Ruby Rings</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="section-cta">
+      <a href="#" class="btn btn-solid btn-soft">
+        <span>View all Rings</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="wedding-builder-feature">
+  <div class="wedding-builder-content">
+    <p class="wedding-builder-kicker">Wedding Rings</p>
+    <h2>Build Your Own Wedding Ring</h2>
+    <p>
+      Design a ring that is uniquely yours — choose your metal, profile, width and finish.
+    </p>
+
+    <div class="wedding-builder-actions">
+      <a href="#" class="btn btn-solid btn-soft">
+        <span>Start Building</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+
+      <a href="wedding-ring-try-on.html" class="wedding-builder-link">
+        Try on first
+      </a>
+    </div>
+  </div>
+
+  <a href="#" class="wedding-builder-image">
+    <img src="assets/img/wedding-rings-label-image.jpg" alt="Build your own wedding ring">
+  </a>
+</section>
+
+  <section class="trending-products-section">
+
+    <div class="section-banner">
+        <p class="eyebrow">Customer Favourites</p>
+        <h2>Trending Now</h2>
+    </div>
+
+    <div class="trending-products-header">
+
+    </div>
+
+  <div class="trending-products-slider">
+    <button class="slider-arrow slider-arrow-left" aria-label="Scroll left">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <div class="trending-products-track">
+
+      <a href="/product-page-1" class="trending-product-card">
+        <img src="assets/img/product-1.jpg" alt="Trending jewellery product">
+        <h3>Oval Lab Diamond Ring</h3>
+        <p>€1,950</p>
+      </a>
+
+      <a href="/product-page-2" class="trending-product-card">
+        <img src="assets/img/product-2.jpg" alt="Trending jewellery product">
+        <h3>Gold Diamond Pendant</h3>
+        <p>€495</p>
+      </a>
+
+      <a href="/product-page-3" class="trending-product-card">
+        <img src="assets/img/product-3.jpg" alt="Trending jewellery product">
+        <h3>Diamond Hoop Earrings</h3>
+        <p>€725</p>
+      </a>
+
+      <a href="/product-page-4" class="trending-product-card">
+        <img src="assets/img/product-4.jpg" alt="Trending jewellery product">
+        <h3>Toi et Moi Ring</h3>
+        <p>€2,850</p>
+      </a>
+
+      <a href="/product-page-5" class="trending-product-card">
+        <img src="assets/img/product-5.jpg" alt="Trending jewellery product">
+        <h3>Tennis Bracelet</h3>
+        <p>€1,250</p>
+      </a>
+
+    </div>
+
+    <button class="slider-arrow slider-arrow-right" aria-label="Scroll right">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+</section>
+
+  <section class="theme-light section-selector-1 w-1356px">
+    <div class="col-1 text-center w-820px">
+      <h2>Watches</h2>
+    </div>
+
+    <div class="flex-cols-4 cols-gap-4">
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/casio-tile.jpg" alt="Casio"></a>
+        </figure>
+        <h3>Casio</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Casio Watches</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/tommy-tile.jpg" alt="Tommy Hilfiger"></a>
+        </figure>
+        <h3>Tommy Hilfiger</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Hilfiger Watches</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/boss-tile.jpg" alt="Boss"></a>
+        </figure>
+        <h3>Boss</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Boss Watches</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/citizen-tile.jpg" alt="Citizen"></a>
+        </figure>
+        <h3>Citizen</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Citizen Watches</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="section-cta">
+      <a href="watches-product-category.html" class="btn btn-solid btn-soft">
+        <span>View all Watches</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="theme-light section-selector-1 w-1356px">
+    <div class="col-1 text-center w-820px">
+      <h2>View Collections</h2>
+    </div>
+
+    <div class="flex-cols-4 cols-gap-4">
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/diamond-jewellery-collection.jpg" alt="Diamond Jewellery"></a>
+        </figure>
+        <h3>Diamond Jewellery</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Diamond Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/gold-collection.jpg" alt="Gold Jewellery"></a>
+        </figure>
+        <h3>Gold Jewellery</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Gold Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/silver-jewellery-collection.jpg" alt="Silver Jewellery"></a>
+        </figure>
+        <h3>Silver Jewellery</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Silver Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/pearl-collection.jpg" alt="Pearl Jewellery"></a>
+        </figure>
+        <h3>Pearl Jewellery</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Pearl Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+    <div class="section-cta">
+      <a href="#" class="btn btn-solid btn-soft">
+        <span>View all Collections</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="theme-light section-selector-1 w-1356px">
+    <div class="col-1 text-center w-820px">
+      <h2>View Collections</h2>
+    </div>
+
+    <div class="flex-cols-4 cols-gap-4">
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/celtic-collection.jpg" alt="Celtic Jewellery"></a>
+        </figure>
+        <h3>Celtic Jewellery</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Celtic Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/initials-namechains-collections.jpg" alt="Celtic Jewellery"></a>
+        </figure>
+        <h3>Initials and Name Chains Jewellery</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Celtic Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/birthstone-collection.jpg" alt="Birthstone Jewellery"></a>
+        </figure>
+        <h3>Birthstone Jewellery</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Birthstone Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/kids-collection.jpg" alt="Childrens Jewellery"></a>
+        </figure>
+        <h3>Childrens Jewellery</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Childrens Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="section-cta">
+      <a href="#" class="btn btn-solid btn-soft">
+        <span>View all Collections</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+ <section class="theme-light section-selector-1 w-1356px">
+    <div class="col-1 text-center w-820px">
+      <h2>View Collections</h2>
+    </div>
+
+    <div class="flex-cols-4 cols-gap-4">
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/gents-collection.jpg" alt="Gents Jewellery"></a>
+        </figure>
+        <h3>Gents Jewellery</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Gents Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+       <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/religious-collection.jpg" alt="Religious Jewellery"></a>
+        </figure>
+        <h3>Spiritual Jewellery</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Spiritual Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+        <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/lockets-collections.jpg" alt="Birthstone Jewellery"></a>
+        </figure>
+        <h3>Lockets</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Lockets Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+       <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/hanging-chains-collections.jpg" alt="Hanging Chains Jewellery"></a>
+        </figure>
+        <h3>Hanging Chains</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Hanging Chains</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="section-cta">
+      <a href="#" class="btn btn-solid btn-soft">
+        <span>View all Collections</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+
+  <section class="theme-light section-selector-1 w-1356px">
+    <div class="col-1 text-center w-820px">
+      <h2>Brands</h2>
+    </div>
+
+    <div class="flex-cols-4 cols-gap-4">
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/absolute-tile.jpg" alt="Absolute"></a>
+        </figure>
+        <h3>Absolute</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Absolute Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/ania-haie-tile.jpg" alt="Ania Haie"></a>
+        </figure>
+        <h3>Ania Haie</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Ania Haie Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/burren-tile.jpg" alt="Burren"></a>
+        </figure>
+        <h3>Burren</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Burren Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="col-4">
+        <figure class="photos-zoom photos-brightness" style="overflow: hidden;">
+          <a href="#"><img src="assets/img/chlobo-tile.jpg" alt="Chlobo"></a>
+        </figure>
+        <h3>Chlobo</h3>
+        <p>Shop now.</p>
+        <a href="#" class="btn btn-solid btn-soft"><span>View all Chlobo Jewellery</span><i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="section-cta">
+      <a href="brands-product-category.html" class="btn btn-solid btn-soft">
+        <span>View all Brands</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+<section class="why-david-cullen">
+
+    <div class="section-banner">
+        <p class="eyebrow">Why David Cullen?</p>
+        <h2>Jewellery you will treasure. Service you will remember.</h2>
+    </div>
+
+    <div class="why-david-cullen-grid">
+
+        <div class="why-card">
+            <i class="fas fa-store"></i>
+            <h3>Three Dublin Stores</h3>
+            <p>Visit us in Clarehall, Charlestown and Rathmines.</p>
+        </div>
+
+        <div class="why-card">
+            <i class="fas fa-gem"></i>
+            <h3>Expert Jewellery Specialists</h3>
+            <p>Knowledgeable advice on diamonds, jewellery and watches.</p>
+        </div>
+
+        <div class="why-card">
+            <i class="fas fa-heart"></i>
+            <h3>Genuine Aftercare</h3>
+            <p>Whether it's a repair, resize or a simple question, we're always happy to help.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="reviews-section">
+
+    <div class="section-banner">
+        <p class="eyebrow">Customer Reviews</p>
+        <h2>Trusted By Thousands Of Happy Customers</h2>
+    </div>
+
+    <div class="reviews-grid">
+
+        <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>
+                “Beautiful jewellery and fantastic service. The team were so helpful from start to finish.”
+            </p>
+            <span>— Happy Customer</span>
+        </article>
+
+        <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>
+                “I found the perfect ring and the staff made the whole experience so special.”
+            </p>
+            <span>— Happy Customer</span>
+        </article>
+
+        <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>
+                “Excellent service, quick delivery and gorgeous packaging. I’ll definitely shop again.”
+            </p>
+            <span>— Happy Customer</span>
+        </article>
+
+    </div>
+
+</section>
+
+<section>
+    <div class="reviews-social">
+        <p>Follow us for new arrivals, styling ideas and behind-the-scenes sparkle.</p>
+
+        <div class="reviews-social-links">
+            <a href="https://instagram.com/davidcullenjewellers" target="_blank" rel="noopener">
+                <i class="fab fa-instagram"></i>
+                Instagram
+            </a>
+
+            <a href="https://facebook.com/davidcullenjewellers" target="_blank" rel="noopener">
+                <i class="fab fa-facebook"></i>
+                Facebook
+            </a>
+        </div>
+    </div>
+
+</section>
+
+<section class="homepage-features homepage-features--icons">
+
+    <a href="theworkshop.html" class="feature-panel">
+        <i class="fas fa-tools"></i>
+        <p class="feature-eyebrow">The Workshop</p>
+        <h3>Jewellery Repairs</h3>
+        <p>Expert jewellery repairs, resizing, stone replacement and restorations.</p>
+        <span class="btn btn-solid feature-link">
+        Learn More
+        <i class="fas fa-arrow-right"></i>
+       </span>
+       </a>
+
+    <a href="thelab.html" class="feature-panel">
+        <i class="fas fa-gem"></i>
+        <p class="feature-eyebrow">The Lab</p>
+        <h3>Here's the science bit...</h3>
+        <p>Discover what makes a diamond sparkle with our helpful diamond guide.</p>
+        <span class="btn btn-solid feature-link">
+        Tell Me More
+        <i class="fas fa-arrow-right"></i>
+        </span>
+        </a>
+
+    <a href="/gift-vouchers/" class="feature-panel">
+        <i class="fas fa-gift"></i>
+        <p class="feature-eyebrow">Gift Vouchers</p>
+        <h3>A Little Luxury</h3>
+        <p>The perfect present when you want them to choose something truly special.</p>
+        <span class="btn btn-solid feature-link">
+        Shop Gift Vouchers
+       <i class="fas fa-gift"></i>
+       </span>
+       </a>
+
+</section>
+  <section class="recently-viewed-section" id="recentlyViewedSection" hidden>
+
+    <div class="recently-viewed-header">
+        <h2>Recently Viewed</h2>
+    </div>
+
+    <div class="recently-viewed-grid" id="recentlyViewedGrid"></div>
+
+</section>
+
+  <div class="announcement-bar announcement-slide" aria-live="polite">
+    <p class="announcement-item">
+      <span class="announcement-icon" aria-hidden="true">
+        <img src="assets/img/dpdvan.png" alt="DPD delivery van">
+      </span>
+      <span class="speedy-delivery">SPEEDY DELIVERY BY DPD</span>
+    </p>
+  </div>
+
+  <footer class="theme-dark footer">
+
+    <!-- Top Row -->
+    <div class="footer-top">
+
+        <div class="footer-left">
+            <ul class="footer-links">
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="our stores.html">Our Stores</a></li>
+                <li><a href="delivery-returns.html">Delivery & Returns</a></li>
+                <li><a href="privacy.html">Privacy & Legal</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-center">
+            <a href="index.html">
+                <img src="assets/img/DCJ LOGO.png" alt="David Cullen Jewellers">
+            </a>
+        </div>
+
+        <div class="footer-right">
+            <span>Follow Us</span>
+            <ul class="footer-icons">
+                <li><a href="https://facebook.com/davidcullenjewellers" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://instagram.com/davidcullenjewellers" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Bottom Row -->
+    <div class="footer-bottom">
+
+        <div class="footer-payments">
+            <div class="payment-icons">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-paypal"></i>
+                <i class="fa-brands fa-cc-apple-pay"></i>
+                <i class="fa-brands fa-google-pay"></i>
+                <img src="assets/img/klarna-logo.jpg" alt="Klarna">
+                <img src="assets/img/humm.jpg" alt="Humm">
+            </div>
+        </div>
+
+        <div class="footer-designed">
+            <img src="assets/img/designedbycolette.png" alt="Designed by Colette">
+        </div>
+
+        <div class="footer-copyright">
+            © 2026 Colette Freeman. All Rights Reserved.
+        </div>
+
+    </div>
+
+</footer>
+  <script>
+    (() => {
+      const $ = (id) => document.getElementById(id);
+
+      const overlay = $("drawerOverlay");
+
+      const searchWrap = $("searchWrap");
+      const searchToggle = $("searchToggle");
+      const searchInput = $("site-search");
+
+      const megaMenu = $("megaMenu");
+      const megaMenuBtn = $("megaMenuBtn");
+      const megaCloseBtn = $("megaCloseBtn");
+
+      const cartDrawer = $("cartDrawer");
+      const cartOpenBtn = $("cartOpenBtn");
+      const cartCloseBtn = $("cartCloseBtn");
+
+      const accountWrap = $("accountWrap");
+      const accountBtn = $("accountBtn");
+      const accountDropdown = $("accountDropdown");
+
+      function isOpen(el) {
+        return !!el && el.classList.contains("is-open");
+      }
+
+      function showOverlay() {
+        if (overlay) overlay.hidden = false;
+      }
+
+      function hideOverlayIfNothingOpen() {
+        const cartOpen = isOpen(cartDrawer);
+        const megaOpen = isOpen(megaMenu);
+        const accountOpen = isOpen(accountWrap);
+        if (!cartOpen && !megaOpen && !accountOpen && overlay) overlay.hidden = true;
+      }
+
+      function openSearch() {
+        if (!searchWrap) return;
+        searchWrap.classList.add("is-open");
+        window.setTimeout(() => searchInput?.focus(), 50);
+      }
+
+      function closeSearch() {
+        if (!searchWrap) return;
+        searchWrap.classList.remove("is-open");
+        searchInput?.blur();
+      }
+
+      searchToggle?.addEventListener("click", (e) => {
+        e.preventDefault();
+        isOpen(searchWrap) ? closeSearch() : openSearch();
+      });
+
+      function openAccount() {
+        closeMega();
+        closeCart();
+        closeSearch();
+
+        accountWrap?.classList.add("is-open");
+        accountBtn?.setAttribute("aria-expanded", "true");
+        accountDropdown?.setAttribute("aria-hidden", "false");
+        showOverlay();
+      }
+
+      function closeAccount() {
+        accountWrap?.classList.remove("is-open");
+        accountBtn?.setAttribute("aria-expanded", "false");
+        accountDropdown?.setAttribute("aria-hidden", "true");
+        hideOverlayIfNothingOpen();
+      }
+
+      function toggleAccount() {
+        isOpen(accountWrap) ? closeAccount() : openAccount();
+      }
+
+      accountBtn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        toggleAccount();
+      });
+
+      function openMega() {
+        closeAccount();
+        closeCart();
+        closeSearch();
+
+        megaMenu?.classList.add("is-open");
+        megaMenu?.setAttribute("aria-hidden", "false");
+        megaMenuBtn?.setAttribute("aria-expanded", "true");
+        showOverlay();
+      }
+
+      function closeMega() {
+        megaMenu?.classList.remove("is-open");
+        megaMenu?.setAttribute("aria-hidden", "true");
+        megaMenuBtn?.setAttribute("aria-expanded", "false");
+        hideOverlayIfNothingOpen();
+      }
+
+      megaMenuBtn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        isOpen(megaMenu) ? closeMega() : openMega();
+      });
+
+      megaCloseBtn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        closeMega();
+      });
+
+      function openCart() {
+        closeMega();
+        closeAccount();
+        closeSearch();
+
+        cartDrawer?.classList.add("is-open");
+        cartDrawer?.setAttribute("aria-hidden", "false");
+        document.body.classList.add("no-scroll");
+        showOverlay();
+        renderCartUI();
+      }
+
+      function closeCart() {
+        cartDrawer?.classList.remove("is-open");
+        cartDrawer?.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("no-scroll");
+        hideOverlayIfNothingOpen();
+      }
+
+      cartOpenBtn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        openCart();
+      });
+
+      cartCloseBtn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        closeCart();
+      });
+
+      overlay?.addEventListener("click", () => {
+        closeMega();
+        closeCart();
+        closeAccount();
+        closeSearch();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeSearch();
+          closeMega();
+          closeCart();
+          closeAccount();
+        }
+      });
+
+      document.addEventListener("click", (e) => {
+        const t = e.target;
+
+        const clickedSearch =
+          (searchWrap && searchWrap.contains(t)) || (searchToggle && searchToggle.contains(t));
+
+        const clickedMega =
+          (megaMenu && megaMenu.contains(t)) || (megaMenuBtn && megaMenuBtn.contains(t));
+
+        const clickedCart =
+          (cartDrawer && cartDrawer.contains(t)) || (cartOpenBtn && cartOpenBtn.contains(t));
+
+        const clickedAccount =
+          (accountWrap && accountWrap.contains(t)) ||
+          (accountBtn && accountBtn.contains(t)) ||
+          (accountDropdown && accountDropdown.contains(t));
+
+        if (!clickedSearch && !clickedMega && !clickedCart && !clickedAccount) closeSearch();
+        if (!clickedAccount) closeAccount();
+        if (!clickedMega && !clickedCart && !clickedAccount) closeMega();
+      });
+
+      (function initAnnouncement() {
+        const messages = [
+          "Free standard delivery on orders over €75",
+          "Free Click & Collect From Three Locations",
+          "Finance available at checkout",
+        ];
+
+        const announcement = $("announcementText");
+        if (!announcement) return;
+
+        let currentIndex = 0;
+
+        window.setInterval(() => {
+          announcement.classList.remove("fade-in");
+          announcement.classList.add("fade-out");
+
+          window.setTimeout(() => {
+            currentIndex = (currentIndex + 1) % messages.length;
+            announcement.textContent = messages[currentIndex];
+            announcement.classList.remove("fade-out");
+            announcement.classList.add("fade-in");
+          }, 300);
+        }, 4000);
+      })();
+
+      (function initHeroSlider() {
+        const track = $("heroSlides");
+        if (!track) return;
+
+        const slides = Array.from(track.querySelectorAll(".hero-slide"));
+        if (slides.length === 0) return;
+
+       const prevBtn = document.querySelector(".hero-arrow-prev");
+       const nextBtn = document.querySelector(".hero-arrow-next");
+       
+       let index = 0;
+        let timer = null;
+        const intervalMs = 4500;
+
+        function goTo(i) {
+          index = (i + slides.length) % slides.length;
+          track.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        function next() { goTo(index + 1); }
+        function prev() { goTo(index - 1); }
+
+        function startAuto() {
+          stopAuto();
+          timer = window.setInterval(next, intervalMs);
+        }
+
+        function stopAuto() {
+          if (timer) window.clearInterval(timer);
+          timer = null;
+        }
+
+        nextBtn?.addEventListener("click", () => { next(); startAuto(); });
+        prevBtn?.addEventListener("click", () => { prev(); startAuto(); });
+
+        track.addEventListener("mouseenter", stopAuto);
+        track.addEventListener("mouseleave", startAuto);
+
+        goTo(0);
+        startAuto();
+      })();
+
+      const CART_KEY = "dcj_cart_v1";
+
+      function loadCart() {
+        try {
+          const parsed = JSON.parse(localStorage.getItem(CART_KEY));
+          return Array.isArray(parsed) ? parsed : [];
+        } catch {
+          return [];
+        }
+      }
+
+      function saveCart(cart) {
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+      }
+
+      function addToCart(product) {
+        const cart = loadCart();
+        const existing = cart.find((i) => i.id === product.id);
+
+        if (existing) existing.qty += 1;
+        else cart.push({ ...product, qty: 1 });
+
+        saveCart(cart);
+        renderCartUI();
+      }
+
+      function removeFromCart(id) {
+        const cart = loadCart().filter((i) => i.id !== id);
+        saveCart(cart);
+        renderCartUI();
+      }
+
+      function setQty(id, qty) {
+        const cart = loadCart();
+        const item = cart.find((i) => i.id === id);
+        if (!item) return;
+
+        item.qty = Math.max(1, Number(qty) || 1);
+        saveCart(cart);
+        renderCartUI();
+      }
+
+      function formatEUR(amount) {
+        const n = Number(amount) || 0;
+        return n.toLocaleString("en-IE", { style: "currency", currency: "EUR" });
+      }
+
+      function escapeHtml(str) {
+        return String(str)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function renderCartUI() {
+        const cart = loadCart();
+
+        const count = cart.reduce((sum, i) => sum + (Number(i.qty) || 0), 0);
+        const badge = $("cart-count");
+        if (badge) badge.textContent = String(count);
+
+        const itemsWrap = $("cartItems");
+        if (itemsWrap) {
+          if (cart.length === 0) {
+            itemsWrap.innerHTML = `<p style="margin:0">Your cart is empty.</p>`;
+          } else {
+            itemsWrap.innerHTML = cart
+              .map((item) => {
+                const id = escapeHtml(item.id);
+                const name = escapeHtml(item.name);
+                const image = item.image ? String(item.image) : "";
+                const qty = Number(item.qty) || 1;
+                const price = Number(item.price) || 0;
+
+                return `
+                  <div class="cart-item" style="gap:12px;">
+                    <div class="cart-thumb" style="width:56px;height:56px;border-radius:10px;overflow:hidden;background:#f2f2f2;flex:0 0 56px;">
+                      ${image ? `<img src="${image}" alt="" style="width:100%;height:100%;object-fit:cover;">` : ``}
+                    </div>
+
+                    <div class="cart-info" style="flex:1">
+                      <div class="cart-name">${name}</div>
+
+                      <div class="cart-meta" style="display:flex;align-items:center;gap:10px;margin-top:6px;">
+                        <button type="button" class="qty-btn" data-qtyminus="${id}" aria-label="Decrease quantity">−</button>
+                        <strong>${qty}</strong>
+                        <button type="button" class="qty-btn" data-qtyplus="${id}" aria-label="Increase quantity">+</button>
+
+                        <button
+                          type="button"
+                          class="btn btn-outline btn-soft"
+                          style="margin-left:auto;padding:.35rem .6rem;font-size:.85rem;"
+                          data-remove="${id}">
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="cart-price">${formatEUR(price * qty)}</div>
+                  </div>
+                `;
+              })
+              .join("");
+          }
+        }
+
+        const subtotal = cart.reduce((sum, i) => {
+          const price = Number(i.price) || 0;
+          const qty = Number(i.qty) || 0;
+          return sum + price * qty;
+        }, 0);
+
+        const subEl = $("cartSubtotal");
+        if (subEl) subEl.textContent = formatEUR(subtotal);
+      }
+
+      document.addEventListener("click", (e) => {
+        const t = e.target;
+        if (!(t instanceof Element)) return;
+
+        const minusId = t.getAttribute("data-qtyminus");
+        if (minusId) {
+          const cart = loadCart();
+          const item = cart.find((i) => i.id === minusId);
+          if (item) setQty(minusId, (Number(item.qty) || 1) - 1);
+          return;
+        }
+
+        const plusId = t.getAttribute("data-qtyplus");
+        if (plusId) {
+          const cart = loadCart();
+          const item = cart.find((i) => i.id === plusId);
+          if (item) setQty(plusId, (Number(item.qty) || 1) + 1);
+          return;
+        }
+
+        const removeId = t.getAttribute("data-remove");
+        if (removeId) {
+          removeFromCart(removeId);
+        }
+      });
+
+      window.addToCart = addToCart;
+
+      renderCartUI();
+
+      (function renderRecentlyViewed() {
+        const RECENT_KEY = "dcj_recently_viewed";
+        const grid = $("recentlyViewedGrid");
+        const section = $("recentlyViewedSection");
+
+        if (!grid || !section) return;
+
+        function loadRecent() {
+          try {
+            const data = JSON.parse(localStorage.getItem(RECENT_KEY));
+            return Array.isArray(data) ? data : [];
+          } catch {
+            return [];
+          }
+        }
+
+        const items = loadRecent();
+
+        if (!items.length) {
+          section.hidden = true;
+          return;
+        }
+
+        section.hidden = false;
+
+        grid.innerHTML = items.map((item) => `
+          <article class="recent-card">
+            <a href="${item.link}">
+              <img src="${item.image}" alt="${item.name}">
+              <div class="recent-card-body">
+                <h4>${item.name}</h4>
+                <p>${item.price}</p>
+              </div>
+            </a>
+          </article>
+        `).join("");
+      })();
+    })();
+  </script>
+
+  <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(() => console.log("Service Worker registered"))
+      .catch(error => console.log("Service Worker error:", error));
+  }
+  const trendingTrack = document.querySelector('.trending-products-track');
+  const trendingLeft = document.querySelector('.slider-arrow-left');
+  const trendingRight = document.querySelector('.slider-arrow-right');
+
+  if (trendingTrack && trendingLeft && trendingRight) {
+    trendingLeft.addEventListener('click', () => {
+      trendingTrack.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+
+    trendingRight.addEventListener('click', () => {
+      trendingTrack.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+  }
+
+</script>
+</body>
+</html>  
